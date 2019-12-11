@@ -1,0 +1,357 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listMonAn_KR_Home = (List<Model.EF.MONAN>)ViewBag.MonAn_KR_Home;
+    var listMonAn_JP_Home = (List<Model.EF.MONAN>)ViewBag.MonAn_JP_Home;
+    var listMonAn_DRINK_Home = (List<Model.EF.MONAN>)ViewBag.MonAn_DRINK_Home;
+}
+
+<link href="~/Content/trangchu.css" rel="stylesheet" />
+<style>
+    /*div chia theo màn hình đang xài*/
+    .information {
+        position: fixed;
+        bottom: 150px;
+        right: 10px;
+        z-index: 4;
+    }
+        /*div chào member - admin*/
+        .information .infor {
+            border: 1px solid #F00;
+            border-radius: 10px;
+            width: 300px;
+            height: 150px;
+            position: relative;
+            margin: 0 auto;
+            background: #FF6F6F;
+            opacity: 0.8;
+        }
+
+    .infor .head_infor {
+        width: 130px;
+        height: 150px;
+        float: right;
+    }
+
+    .infor .body_infor {
+        margin-top: 0;
+        width: 170px;
+        height: 150px;
+        float: right;
+    }
+
+    .head_infor img {
+        border-radius: 10px;
+    }
+</style>
+<!------------------------------------------------------MENU------------------------------------------------------------>
+<hr color="#FF9900" />		<!-- dòng kẻ ngang -->
+<!--tạo bảng MENU-->
+<table align="center" border="0" class="fontchu">
+    <tr align="center">
+        <td width="200"><a href="/trang-chu" class="dngaz"><b>TRANG CHỦ</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="#doanhanquoc" class="dngaz"><b>MÓN ĂN HÀN QUỐC</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="#doannhatban" class="dngaz"><b>MÓN ĂN NHẬT BẢN</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="#thucuong" class="dngaz"><b>THỨC UỐNG</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="/dang-nhap" class="dngaz"><b>TÀI KHOẢN</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="#lienhe" class="dngaz"><b>LIÊN HỆ</b></a></td>
+    </tr>
+</table>
+
+<hr color="#FF9900" />    <!-- dòng kẻ ngang -->
+<!-------------------------------------------------MÓN ĂN HÀN QUỐC------------------------------------------------------>
+<table width="550" border="0" align="center" cellpadding="10px">
+    <tr>
+        <td align="center"><a name=doanhanquoc><p class="dngaz fontchu"><font size="+6">MÓN ĂN HÀN QUỐC</font></p></a></td>
+    </tr>
+</table>
+
+<!--begin .content-->
+<div class="content">
+    <table width="100%" border="0" cellpadding="20">
+        <tr>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_right"></div>
+                    <div class="arrow_infor_left">
+                        <br /><br /><br />
+                        <h2 class="fontchu">@listMonAn_KR_Home[0].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_KR_Home[0].MoTa</h5>
+                        <br />
+                        <h3>@listMonAn_KR_Home[0].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_left">
+                        <img name="@listMonAn_KR_Home[0].TenMonAn" src="@listMonAn_KR_Home[0].HinhMinhHoa" alt="gimbab_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+            <td rowspan="2">
+                <div class="arrow_middle_all">
+                    <div class="arrow_middle_infor">
+                        <h2 class="fontchu" align="center">@listMonAn_KR_Home[1].TenMonAn</h2>
+                        <h5 align="center">@listMonAn_KR_Home[1].MoTa</h5>
+                        <h3 align="center">@listMonAn_KR_Home[1].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_middle">
+                        <img name="@listMonAn_KR_Home[1].TenMonAn" src="@listMonAn_KR_Home[1].HinhMinhHoa" alt="bulgogi_img" width="700px" height="500px" />
+                        <div class="triangle_left"></div>
+                        <div class="triangle_right"></div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_left"></div>
+                    <div class="arrow_infor_right">
+                        <br />
+                        <h2 class="fontchu">@listMonAn_KR_Home[2].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_KR_Home[2].MoTa</h5>
+                        <h3>@listMonAn_KR_Home[2].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_right">
+                        <img name="@listMonAn_KR_Home[2].TenMonAn" src="@listMonAn_KR_Home[2].HinhMinhHoa" alt="tokbokki_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_right"></div>
+                    <div class="arrow_infor_left">
+                        <br /><br /><br />
+                        <h2 class="fontchu">@listMonAn_KR_Home[3].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_KR_Home[3].MoTa</h5>
+                        <br />
+                        <h3>@listMonAn_KR_Home[3].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_left">
+                        <img name="@listMonAn_KR_Home[3].TenMonAn" src="@listMonAn_KR_Home[3].HinhMinhHoa" alt="gimbab_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_left"></div>
+                    <div class="arrow_infor_right">
+                        <br />
+                        <h2 class="fontchu">@listMonAn_KR_Home[4].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_KR_Home[4].MoTa</h5>
+                        <h3>@listMonAn_KR_Home[4].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_right">
+                        <img name="@listMonAn_KR_Home[4].TenMonAn" src="@listMonAn_KR_Home[4].HinhMinhHoa" alt="tokbokki_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table width="260px" border="0" align="center" cellpadding="10" bgcolor="#FF6F6F">
+        <tr>
+            <td align="center"><a href="/thuc-don"><p class="buy fontchu"><b>START YOUR ORDER</b></p></a></td>
+        </tr>
+    </table>
+    <!-------------------------------------------------MÓN ĂN NHẬT BẢN------------------------------------------------------>
+    <hr color="#FF9900" />
+    <table width="550" border="0" align="center" cellpadding="10px">
+        <tr>
+            <td align="center"><a name=doannhatban><p class="dngaz fontchu"><font size="+6">MÓN ĂN NHẬT BẢN</font></p></a></td>
+        </tr>
+    </table>
+    <table width="100%" border="0" cellpadding="20">
+        <tr>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_right"></div>
+                    <div class="arrow_infor_left">
+                        <br /><br /><br />
+                        <h2 class="fontchu">@listMonAn_JP_Home[0].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_JP_Home[0].MoTa</h5>
+                        <br />
+                        <h3>@listMonAn_JP_Home[0].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_left">
+                        <img name="@listMonAn_JP_Home[0].TenMonAn" src="@listMonAn_JP_Home[0].HinhMinhHoa" alt="gimbab_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+            <td rowspan="2">
+                <div class="arrow_middle_all">
+                    <div class="arrow_middle_infor">
+                        <h2 class="fontchu" align="center">@listMonAn_JP_Home[1].TenMonAn</h2>
+                        <h5 align="center">@listMonAn_JP_Home[1].MoTa</h5>
+                        <h3 align="center">@listMonAn_JP_Home[1].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_middle">
+                        <img name="@listMonAn_JP_Home[1].TenMonAn" src="@listMonAn_JP_Home[1].HinhMinhHoa" alt="bulgogi_img" width="700px" height="500px" />
+                        <div class="triangle_left"></div>
+                        <div class="triangle_right"></div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_left"></div>
+                    <div class="arrow_infor_right">
+                        <br />
+                        <h2 class="fontchu">@listMonAn_JP_Home[2].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_JP_Home[2].MoTa</h5>
+                        <h3>@listMonAn_JP_Home[2].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_right">
+                        <img name="@listMonAn_JP_Home[2].TenMonAn" src="@listMonAn_JP_Home[2].HinhMinhHoa" alt="tokbokki_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_right"></div>
+                    <div class="arrow_infor_left">
+                        <br /><br /><br />
+                        <h2 class="fontchu">@listMonAn_JP_Home[3].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_JP_Home[3].MoTa</h5>
+                        <br />
+                        <h3>@listMonAn_JP_Home[3].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_left">
+                        <img name="@listMonAn_JP_Home[3].TenMonAn" src="@listMonAn_JP_Home[3].HinhMinhHoa" alt="gimbab_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_left"></div>
+                    <div class="arrow_infor_right">
+                        <br />
+                        <h2 class="fontchu">@listMonAn_JP_Home[4].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_JP_Home[4].MoTa</h5>
+                        <h3>@listMonAn_JP_Home[4].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_right">
+                        <img name="@listMonAn_JP_Home[4].TenMonAn" src="@listMonAn_JP_Home[4].HinhMinhHoa" alt="tokbokki_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table width="260px" border="0" align="center" cellpadding="10" bgcolor="#FF6F6F">
+        <tr>
+            <td align="center"><a href="/thuc-don"><p class="buy fontchu"><b>START YOUR ORDER</b></p></a></td>
+        </tr>
+    </table>
+    <!-------------------------------------------------THỨC UỐNG------------------------------------------------------>
+    <hr color="#FF9900" />
+    <table width="550" border="0" align="center" cellpadding="10px">
+        <tr>
+            <td align="center"><a name=thucuong><p class="dngaz fontchu"><font size="+6">THỨC UỐNG</font></p></a></td>
+        </tr>
+    </table>
+    <table width="100%" border="0" cellpadding="20">
+        <tr>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_right"></div>
+                    <div class="arrow_infor_left">
+                        <br /><br /><br />
+                        <h2 class="fontchu">@listMonAn_DRINK_Home[0].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_DRINK_Home[0].MoTa</h5>
+                        <br />
+                        <h3>@listMonAn_DRINK_Home[0].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_left">
+                        <img name="@listMonAn_DRINK_Home[0].TenMonAn" src="@listMonAn_DRINK_Home[0].HinhMinhHoa" alt="gimbab_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+            <td rowspan="2">
+                <div class="arrow_middle_all">
+                    <div class="arrow_middle_infor">
+                        <h2 class="fontchu" align="center">@listMonAn_DRINK_Home[1].TenMonAn</h2>
+                        <h5 align="center">@listMonAn_DRINK_Home[1].MoTa</h5>
+                        <h3 align="center">@listMonAn_DRINK_Home[1].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_middle">
+                        <img name="@listMonAn_DRINK_Home[1].TenMonAn" src="@listMonAn_DRINK_Home[1].HinhMinhHoa" alt="bulgogi_img" width="700px" height="500px" />
+                        <div class="triangle_left"></div>
+                        <div class="triangle_right"></div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_left"></div>
+                    <div class="arrow_infor_right">
+                        <br />
+                        <h2 class="fontchu">@listMonAn_DRINK_Home[2].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_DRINK_Home[2].MoTa</h5>
+                        <h3>@listMonAn_DRINK_Home[2].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_right">
+                        <img name="@listMonAn_DRINK_Home[2].TenMonAn" src="@listMonAn_DRINK_Home[2].HinhMinhHoa" alt="tokbokki_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_right"></div>
+                    <div class="arrow_infor_left">
+                        <br /><br /><br />
+                        <h2 class="fontchu">@listMonAn_DRINK_Home[3].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_DRINK_Home[3].MoTa</h5>
+                        <br />
+                        <h3>@listMonAn_DRINK_Home[3].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_left">
+                        <img name="@listMonAn_DRINK_Home[3].TenMonAn" src="@listMonAn_DRINK_Home[3].HinhMinhHoa" alt="gimbab_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="arrow_all">
+                    <div class="triangle_left"></div>
+                    <div class="arrow_infor_right">
+                        <br />
+                        <h2 class="fontchu">@listMonAn_DRINK_Home[4].TenMonAn</h2>
+                        <h5 align="left">@listMonAn_DRINK_Home[4].MoTa</h5>
+                        <h3>@listMonAn_DRINK_Home[4].DonGia.GetValueOrDefault(0).ToString("N0")đ/phần</h3>
+                    </div>
+                    <div class="arrow_right">
+                        <img name="@listMonAn_DRINK_Home[4].TenMonAn" src="@listMonAn_DRINK_Home[4].HinhMinhHoa" alt="tokbokki_img" width="500px" height="400px" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table width="260px" border="0" align="center" cellpadding="10" bgcolor="#FF6F6F">
+        <tr>
+            <td align="center"><a href="/thuc-don"><p class="buy fontchu"><b>START YOUR ORDER</b></p></a></td>
+        </tr>
+    </table>
+    <!--end .content-->
+</div>
+@{ var session = (LeSyDuy_ThietKeWeb.Common.UserLogin)Session[LeSyDuy_ThietKeWeb.Common.CommonConstants.SESSION];
+    if(session != null)
+    {
+        <div class="information">
+            <div class="infor">
+                <div class="body_infor">
+                        <p class="fontchu" align="center"><font size=4 color="#000000" style="font-weight:bold">Xin chào @session.TenDN!<br />Cảm ơn vì đã quay lại. Hôm nay bạn muốn ăn gì?</font></p>
+                </div>
+                <div class="head_infor">
+                    <img src="../../images/icon/avatar.gif" alt="avatar_img" width="150px" height="150px" />
+                </div>
+            </div>
+        </div>
+    }
+}
+

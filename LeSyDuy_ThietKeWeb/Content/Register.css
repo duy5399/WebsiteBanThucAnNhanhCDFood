@@ -1,0 +1,136 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../Images/background/bgpink.jpg);
+    background-size: auto;
+    font: Arial, Helvetica, sans-serif;
+}
+
+.signup {
+    width: 620px;
+    height: 630px;
+    margin: 90px auto;
+    border-radius: 10%;
+}
+
+
+img {
+    border-radius: 50%;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+/*định dạng liên kết*/
+a.dngaz:link, a.dngaz:visited {
+    font-weight: bold;
+    color: black;
+}
+
+a.dngaz:hover {
+    color: #FF4242;
+    font-weight: bold;
+    font-size: larger;
+    text-decoration: underline;
+}
+
+.fieldset_register {
+    background-color: #c7e5f2;
+    border-radius: 5px;
+    border: 1px dashed #79B22F;
+}
+
+.thongbao {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px
+}
+
+    .thongbao h4 {
+        margin-top: 0;
+        color: inherit
+    }
+
+    .thongbao .thongbao-link {
+        font-weight: 700
+    }
+
+    .thongbao > p, .thongbao > ul {
+        margin-bottom: 0
+    }
+
+        .thongbao > p + p {
+            margin-top: 5px
+        }
+
+.thongbao-dismissable, .thongbao-dismissible {
+    padding-right: 35px
+}
+
+    .thongbao-dismissable .close, .thongbao-dismissible .close {
+        position: relative;
+        top: -2px;
+        right: -21px;
+        color: inherit
+    }
+
+.thongbao-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6
+}
+
+    .thongbao-success hr {
+        border-top-color: #c9e2b3
+    }
+
+    .thongbao-success .thongbao-link {
+        color: #2b542c
+    }
+
+.thongbao-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1
+}
+
+    .thongbao-info hr {
+        border-top-color: #a6e1ec
+    }
+
+    .thongbao-info .thongbao-link {
+        color: #245269
+    }
+
+.thongbao-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc
+}
+
+    .thongbao-warning hr {
+        border-top-color: #f7e1b5
+    }
+
+    .thongbao-warning .thongbao-link {
+        color: #66512c
+    }
+
+.thongbao-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1
+}
+
+    .thongbao-danger hr {
+        border-top-color: #e4b9c0
+    }
+
+    .thongbao-danger .thongbao-link {
+        color: #843534
+    }

@@ -1,0 +1,77 @@
+﻿@model LeSyDuy_ThietKeWeb.Models.UserLoginModel
+@{
+                /**/
+
+                Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CD Food - Đăng nhập</title>
+    <script src="@Url.Content("~/javascript/dangnhap.js")" type="text/javascript"></script>
+
+    <link href="~/Content/login.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="setFocus();">
+    <div class="login">
+        <p align="center"><font size="+5" color="#FF5B5B"><b>Đăng nhập</b></font></p>
+        <table width="100%" border="0">
+            <tr>
+                <td width="100px">
+                    <hr color="#FF5E5E" />
+                </td>
+                <td align="center">
+                    <img src="@Url.Content("~/Images/logo/hotdog.gif")" alt="logo" width="150px" height="150px" />
+                </td>
+                <td width="100px">
+                    <hr color="#FF5E5E" />
+                </td>
+            </tr>
+        </table>
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            <h3 align="center"><b>Vui lòng nhập Tên tài khoản và Mật khẩu</b></h3>
+            <table width="60%" border="0" align="center">
+                <tr align="center">
+                    <td height="35">
+                        <img src="@Url.Content("~/Images/icon/user.png")" height="25px" width="25px" />
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.TenDN, new { @autofocus = "autofocus", @placeholder = "Tên tài khoản" })
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td height="35">
+                        <img src="@Url.Content("~/Images/icon/password.png")" height="25px" width="25px" />
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.MatKhau, new { @placeholder = "Mật khẩu", @type = "password" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        @*nếu true không báo lỗi*@
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2" height="35">
+                        <button type="submit">LOGIN</button>
+                    </td>
+                </tr>
+            </table>
+        }
+        <hr width="30%" align="center" color="#6FF" />
+        <h2 align="center">Bạn chưa có tài khoản?</h2>
+        <a href="/dang-ky" class="dngaz"><p align="center"><font size="+2">Đăng ký ngay!</font></p></a>
+
+        <hr width="20%" color="#6FF" align="center" />
+        <a href="/trang-chu" class="dngaz"><p align="center"><font size="+2">Quay về trang chủ</font></p></a>
+        <h4 align="center"><font style="font-style:italic" color="#FF5E5E">CD Food - Let's eat!</font></h4>
+    </div>
+</body>
+</html>>

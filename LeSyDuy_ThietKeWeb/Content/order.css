@@ -1,0 +1,232 @@
+﻿.clear {
+    clear: both;
+}
+
+.content_all {
+    padding: 10px 0;
+}
+
+.content_top {
+    padding: 15px 20px;
+    border: 1px solid #EBE8E8;
+    border-radius: 3px;
+}
+
+.heading_left {
+    float: left;
+}
+
+    .heading_left h2 {
+        font-family: 'ambleregular';
+        font-size: 30px;
+        color: #383838;
+        text-transform: uppercase;
+    }
+
+.see {
+    float: right;
+    padding-top: 8px;
+}
+
+    .see p a {
+        display: inline;
+        font-size: 0.8125em;
+        color: #333;
+        background: url(../images/list-img.png) no-repeat right 3px;
+        padding: 0px 12px 0px 0px;
+    }
+
+        .see p a:hover {
+            color: #E4292F;
+        }
+
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+.group:before, .group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1;
+}
+
+.grid_1_of_4 {
+    display: block;
+    float: left;
+    margin: 1% 0 1% 1.6%;
+    box-shadow: 0px 0px 3px rgb(150, 150, 150);
+    -webkit-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+    -moz-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+    -o-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+}
+
+    .grid_1_of_4:first-child {
+    }
+
+.images_1_of_4 {
+    width: 20%;
+    padding: 1.5%;
+    text-align: center;
+    position: relative;
+}
+
+    .images_1_of_4 img {
+        max-width: 100%;
+    }
+
+    .images_1_of_4 h2 {
+        color: #6A82A4;
+        font-family: 'ambleregular';
+        font-size: 1.1em;
+        font-weight: normal;
+    }
+
+    .images_1_of_4 p {
+        font-size: 0.8125em;
+        padding: 0.4em 0;
+        color: #333;
+    }
+
+        .images_1_of_4 p span.price {
+            font-size: 18px;
+            font-family: 'ambleregular';
+            color: #CC3636;
+        }
+
+.price-details {
+    margin-top: 10px;
+    border-top: 1px solid #CD1F25;
+}
+
+    .price-details p span.rupees {
+        font-size: 1.6em;
+        font-family: 'ambleregular';
+        color: #383838;
+    }
+
+.price-number {
+    float: left;
+    padding-top: 5px;
+}
+
+.add-cart {
+    float: right;
+    display: inline-block;
+}
+
+    .add-cart h4 a {
+        font-size: 0.9em;
+        display: block;
+        padding: 10px 15px;
+        font-family: 'ambleregular';
+        background: #CD1F25;
+        color: #FFF;
+        text-decoration: none;
+        outline: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+        .add-cart h4 a:hover {
+            text-shadow: 0px 0px 1px #000;
+            background: #292929;
+        }
+
+@media only screen and (max-width: 320px) {
+    .wrap {
+        width: 95%;
+    }
+
+    .account_desc li a {
+        padding: 0;
+    }
+
+    .menu li a {
+        padding: 15px 4.8px;
+    }
+
+    .search_box {
+        width: 93%;
+    }
+
+        .search_box form input[type="text"] {
+            width: 85%;
+        }
+
+    .images_1_of_4 {
+        width: 96.8%;
+    }
+
+    .grid_1_of_4 {
+        margin: 1% 0 1% 0;
+    }
+
+    .price-number {
+        float: left;
+        padding-top: 5px;
+    }
+
+    .price-details p span.rupees {
+        font-size: 1.6em;
+    }
+
+    .add-cart {
+        float: right;
+    }
+
+        .add-cart h4 a {
+            font-size: 0.9em;
+            padding: 10px 15px;
+        }
+
+    .heading_left h2 {
+        font-size: 1em;
+    }
+
+    .content_top, .content_bottom {
+        padding: 10px;
+    }
+
+    .span_1_of_4 {
+        width: 100%;
+    }
+
+    .span_1_of_3 p.history {
+        width: 80%;
+    }
+
+    .images_1_of_3 {
+        width: 97%;
+    }
+
+        .images_1_of_3 h3 {
+            font-size: 1em;
+        }
+
+    .images_3_of_1 {
+        width: 100%;
+    }
+
+    .grid {
+        margin: 0;
+    }
+
+    .news_desc {
+        width: 100%;
+    }
+
+    .contact-form input[type="text"], .contact-form textarea {
+        width: 93%;
+    }
+}

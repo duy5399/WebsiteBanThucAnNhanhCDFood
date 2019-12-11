@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewBag.Title = "Thực đơn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listMonAn_New = (List<Model.EF.MONAN>)ViewBag.MonAn_New;
+    var listMonAn_Hot = (List<Model.EF.MONAN>)ViewBag.MonAn_Hot;
+    var listMonAn_KR = (List<Model.EF.MONAN>)ViewBag.MonAn_KR;
+    var listMonAn_JP = (List<Model.EF.MONAN>)ViewBag.MonAn_JP;
+    var listMonAn_DRINK = (List<Model.EF.MONAN>)ViewBag.MonAn_DRINK;
+}
+<link href="~/Content/order.css" rel="stylesheet" />
+
+<!------------------------------------------------------MENU------------------------------------------------------------>
+<hr color="#FF9900" />		<!-- dòng kẻ ngang -->
+<!--tạo bảng MENU-->
+<table align="center" border="0" class="fontchu">
+    <tr align="center">
+        <td width="200"><a href="/trang-chu" class="dngaz"><b>TRANG CHỦ</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="#doanhanquoc" class="dngaz"><b>MÓN ĂN HÀN QUỐC</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="#doannhatban" class="dngaz"><b>MÓN ĂN NHẬT BẢN</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="#thucuong" class="dngaz"><b>THỨC UỐNG</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="/dang-nhap" class="dngaz"><b>TÀI KHOẢN</b></a></td>
+        <td width="10"><b>|</b></td>
+        <td width="200"><a href="#lienhe" class="dngaz"><b>LIÊN HỆ</b></a></td>
+    </tr>
+</table>
+
+<hr color="#FF9900" />    <!-- dòng kẻ ngang -->
+<br />
+<br />
+
+<div class="content_all">
+    <hr width="30%" color="#0aeafa" align="left" />
+    <div class="content_bottom">
+        <div class="heading_left">
+            <h2>Món ăn mới nhất</h2>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in listMonAn_New)
+        {
+            var url = "/chi-tiet/" + item.MaCD + "/" + item.TenMonAn + "/" + item.MaMonAn;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="@item.HinhMinhHoa" alt="@item.TenMonAn" height="260px" /></a>
+                <h2>@item.TenMonAn</h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.DonGia.HasValue ? item.DonGia.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-gio-hang?maMonAn=@item.MaMonAn&soluong=1">Thêm vào giỏ</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <br />
+    <br />
+    <hr width="30%" color="#f00070" align="left" />
+    <div class="content_bottom">
+        <div class="heading_left">
+            <h2>Món ăn "HOT"</h2>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in listMonAn_Hot)
+        {
+            var url = "/Chi-tiet/" + item.MaCD + "/" + item.TenMonAn + "/" + item.MaMonAn;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="@item.HinhMinhHoa" alt="@item.TenMonAn" height="260px" /></a>
+                <h2>@item.TenMonAn</h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.DonGia.HasValue ? item.DonGia.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-gio-hang?maMonAn=@item.MaMonAn&soluong=1">Thêm vào giỏ</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <br />
+    <br />
+    <hr width="30%" color="#f2ff03" align="left" />
+    <div class="content_bottom">
+        <div class="heading_left">
+            <h2 ><a name=doanhanquoc>Món ăn Hàn Quốc</a></h2>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in listMonAn_KR)
+        {
+            var url = "/Chi-tiet/" + item.MaCD + "/" + item.TenMonAn + "/" + item.MaMonAn;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="@item.HinhMinhHoa" alt="@item.TenMonAn" height="260px" /></a>
+                <h2>@item.TenMonAn</h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.DonGia.HasValue ? item.DonGia.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-gio-hang?maMonAn=@item.MaMonAn&soluong=1">Thêm vào giỏ</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <br />
+    <br />
+    <hr width="30%" color="#0afa9a" align="left" />
+    <div class="content_bottom">
+        <div class="heading_left">
+            <h2><a name=doannhatban>Món ăn Nhật Bản</a></h2>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in listMonAn_JP)
+        {
+            var url = "/Chi-tiet/" + item.MaCD + "/" + item.TenMonAn + "/" + item.MaMonAn;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="@item.HinhMinhHoa" alt="@item.TenMonAn" height="260px" /></a>
+                <h2>@item.TenMonAn</h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.DonGia.HasValue ? item.DonGia.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-gio-hang?maMonAn=@item.MaMonAn&soluong=1">Thêm vào giỏ</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <br />
+    <br />
+    <hr width="30%" color="#cc00ff" align="left" />
+    <div class="content_bottom">
+        <div class="heading_left">
+            <h2><a name=thucuong>Thức uống</a></h2>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in listMonAn_DRINK)
+        {
+            var url = "/Chi-tiet/" + item.MaCD + "/" + item.TenMonAn + "/" + item.MaMonAn;
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="@url"><img src="@item.HinhMinhHoa" alt="@item.TenMonAn" height="260px" /></a>
+                <h2>@item.TenMonAn</h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(item.DonGia.HasValue ? item.DonGia.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-gio-hang?maMonAn=@item.MaMonAn&soluong=1">Thêm vào giỏ</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+@{ Html.RenderAction("CartAlert", "Cart");}
+

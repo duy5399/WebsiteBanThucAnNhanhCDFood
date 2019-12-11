@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Đổi mật khẩu thành công";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+
+@section header{
+    Đổi mật khẩu thành công
+}
+<table width="98%" align="right">
+    <tr>
+        <td>
+            <b>Bạn đã đổi mật khẩu thành công! Vui lòng ghi nhớ mật khẩu cho lần đăng nhập sau.</b><br />
+            @Html.ActionLink("Back", "ThongTinUser")
+        </td>
+    </tr>
+</table>
+

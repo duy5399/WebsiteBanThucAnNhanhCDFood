@@ -1,0 +1,158 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color:#FFF;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 
+	padding-right: 15px;
+	padding-left: 15px; 
+}
+a img { 
+	border: none;
+}
+
+a:link {
+	color:#414958;
+	text-decoration: underline; 
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { 
+	text-decoration: none;
+}
+
+/*----------------------------------------div chứa toàn bộ trang web-------------------------------------------------*/
+.container {
+	width: 100%;
+	background-color:#FFF;
+	margin: 0px auto;
+}
+
+/*----------------------------------------div ở giữa-------------------------------------------------*/
+.content {
+	padding: 10px 0;
+}
+
+
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; 
+}
+							/*div quay lại đầu trang*/
+.contacts .backtotop{
+	top:40px;
+	left:900px;
+	width:130px;
+	height:60px;
+	position:absolute;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+								/*tạo khung MENU*/
+.menu {
+	width: 100%;
+	height:50px;
+}
+.fontchu{
+	font-family:Arial, Helvetica, sans-serif;
+}
+								/*định dạng liên kết (link) hoặc liên kết đã thăm (visited)*/
+a.dngaz:link, a.dngaz:visited{
+	font-weight:bold;
+	color:black;
+	text-decoration:underline;
+}
+								/*định dạng liên kết khi trỏ chuột vào*/
+a.dngaz:hover{
+	color:#FF4242;
+	font-weight:bold;
+	font-size:larger;
+	text-decoration:underline;
+}
+a p.dngaz:hover{
+	color:#FFF;
+	font-weight:bold;
+	background:#000;
+}
+a p.buy:hover{
+	font-weight:bold;
+	font-size:larger;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+				/*div chứa thông tin cá nhân, lich sử mua hàng*/
+.gioithieu1{
+	width:100%;
+	height:400px;
+	background:#FFD2D2;
+	position:relative;
+	
+}
+
+.gioithieu1 .left1{
+	width:30%;
+	height:80%;
+	top:10%;
+	left:25%;
+	float:left;
+	position:absolute;
+}
+.gioithieu1 .right1{
+	width:28%;
+	height:90%;
+	top:5%;
+	left:57%;
+	float:left;
+	background:#F00;
+	position:absolute;
+}
+
+.gioithieu2{
+	width:100%;
+	height:460px;
+	position:relative;
+}
+.gioithieu2 .left2{
+	width:30%;
+	height:80%;
+	top:10%;
+	left:15%;
+	float:left;
+	position:absolute;
+}
+.gioithieu2 .right2{
+	width:30%;
+	height:80%;
+	top:10%;
+	left:45%;
+	float:left;
+	position:absolute;
+}

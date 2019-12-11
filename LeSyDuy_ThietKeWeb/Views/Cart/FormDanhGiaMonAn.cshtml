@@ -1,0 +1,214 @@
+﻿@model Model.EF.DANHGIAMONAN
+
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Đánh giá món ăn";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+    .content_detail {
+        margin: 2% 10% 2% 10%;
+        min-height: 560px;
+    }
+    .panel .panel-content {
+        width: 49%;
+        padding: 15px;
+        float:left;
+    }
+    .thongbao {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px
+    }
+
+        .thongbao h4 {
+            margin-top: 0;
+            color: inherit
+        }
+
+        .thongbao .thongbao-link {
+            font-weight: 700
+        }
+
+        .thongbao > p, .thongbao > ul {
+            margin-bottom: 0
+        }
+
+            .thongbao > p + p {
+                margin-top: 5px
+            }
+
+    .thongbao-dismissable, .thongbao-dismissible {
+        padding-right: 35px
+    }
+
+        .thongbao-dismissable .close, .thongbao-dismissible .close {
+            position: relative;
+            top: -2px;
+            right: -21px;
+            color: inherit
+        }
+
+    .thongbao-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6
+    }
+
+        .thongbao-success hr {
+            border-top-color: #c9e2b3
+        }
+
+        .thongbao-success .thongbao-link {
+            color: #2b542c
+        }
+
+    .thongbao-info {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1
+    }
+
+        .thongbao-info hr {
+            border-top-color: #a6e1ec
+        }
+
+        .thongbao-info .thongbao-link {
+            color: #245269
+        }
+
+    .thongbao-warning {
+        color: #8a6d3b;
+        background-color: #fcf8e3;
+        border-color: #faebcc
+    }
+
+        .thongbao-warning hr {
+            border-top-color: #f7e1b5
+        }
+
+        .thongbao-warning .thongbao-link {
+            color: #66512c
+        }
+
+    .thongbao-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1
+    }
+
+        .thongbao-danger hr {
+            border-top-color: #e4b9c0
+        }
+
+        .thongbao-danger .thongbao-link {
+            color: #843534
+        }
+</style>
+<div class="content_detail">
+    <div class="row">
+
+        <div class="col-lg-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    @{ var url = "/Chi-tiet/" + TempData["ChuDe"] + "/" + TempData["TenMonAn"] + "/" + TempData["MaMonAn"];}
+                    <p><a href="/thuc-don">Thực đơn</a> > @TempData["ChuDe"] >  <a href="@url">@TempData["TenMonAn"]</a> > Đánh giá</p>
+                </div>
+
+                <!-- /.panel-heading -->
+                <div class="panel-content">
+                    <img src="@TempData["HinhMinhHoa"]" alt="@TempData["HinhMinhHoa"]-img" width="89%" />
+                </div>
+                <div class="panel-content">
+
+                    @using (Html.BeginForm("FormDanhGiaMonAn", "Cart", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="table-responsive">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @if(ViewBag.DanhGia_Success != null)
+                            {
+                                <div class="thongbao thongbao-success">@ViewBag.DanhGia_Success</div>
+                            }
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="50%" align="center">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Rate, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    <span>1 sao <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i></span> @Html.RadioButtonFor(model => model.Rate, 1, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <br /><span>2 sao <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star-o" aria-hidden="true"></i></span> @Html.RadioButtonFor(model => model.Rate, 2, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <br /><span>3 sao <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star-o" aria-hidden="true"></i></span> @Html.RadioButtonFor(model => model.Rate, 3, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <br /><span>4 sao <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star-o" aria-hidden="true"></i></span> @Html.RadioButtonFor(model => model.Rate, 4, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <br /><span>5 sao <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i>
+                                                                  <i class="fa fa-star" aria-hidden="true"></i></span> @Html.RadioButtonFor(model => model.Rate, 5, new { @checked = "checked"})
+                                                    @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th width="50%">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.NoiDungDG, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.TextAreaFor(model => model.NoiDungDG, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.NoiDungDG, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <table align="center">
+                                <tr>
+                                    <td align="center" colspan="2">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Gửi đánh giá" class="btn btn-default" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    }
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+</div>

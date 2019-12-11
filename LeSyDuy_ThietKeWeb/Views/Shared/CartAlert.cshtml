@@ -1,0 +1,58 @@
+﻿@model List<LeSyDuy_ThietKeWeb.Models.CartItem>
+<style>
+    /*div chia theo màn hình đang xài*/
+    .information {
+        position: fixed;
+        bottom: 150px;
+        right: 10px;
+        width: 300px;
+        height: 150px;
+        z-index: 4;
+    }
+        /*div chào member - admin*/
+        .information .infor {
+            border: 1px solid #F00;
+            border-radius: 10px;
+            width: 300px;
+            height: 150px;
+            position: relative;
+            margin: 0 auto;
+            background: #FF6F6F;
+            opacity: 0.9;
+        }
+
+    .head_infor {
+        position: fixed;
+        bottom: 150px;
+        right: 162px;
+        width: 145px;
+        height: 145px;
+        float: left;
+    }
+
+    .body_infor {
+        position: fixed;
+        bottom: 150px;
+        right: 10px;
+        margin-top: 0;
+        width: 150px;
+        height: 150px;
+        float: right;
+    }
+
+    .head_infor img {
+        border-radius: 10px;
+    }
+</style>
+
+<div class="information">
+    <div class="infor">
+        <div class="head_infor">
+            <img src="/Images/icon/shopping-cart.png" alt="avatar_img" width="145px" height="140px" />
+        </div>
+        <div class="body_infor">
+            <p class="fontchu" align="center"><font size=4 color="#000000" style="font-weight:bold"><br />Hiện tại đang có @Model.Count sản phẩm!<br /><a href="/gio-hang">Giỏ hàng</a></font></p>
+        </div>
+    </div>
+</div>
+

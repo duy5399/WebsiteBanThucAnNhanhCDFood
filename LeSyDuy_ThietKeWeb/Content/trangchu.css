@@ -1,0 +1,232 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+<!--
+
+
+/*----------------------------------------div trên đầu-------------------------------------------------*/
+.header {
+	background-color:#FFF;
+	width:100%;
+	height:100px;
+	float:left;
+}
+						/*phần div chứa ngày*/
+.header #date{
+	width:60%;
+	height:100px;
+	float:right;	
+}
+						/*div chứa ảnh gif logo*/
+.header .logo{
+	width:10%;
+	height:100px;
+	float:right;
+}
+
+/*----------------------------------------div ở giữa-------------------------------------------------*/
+.content {
+	padding: 10px 0;
+}
+
+
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; 
+}
+
+/*---------------------------------------div cuối trang---------------------------------------------------------*/
+.footer {
+	background-color:#F2F2F2;
+	height:150px;
+	width:100%;
+}
+.footer .logo{
+	width:35%;
+	height:150px;
+	float:left;
+	background:#454545;
+}
+							/*div chứa liên hệ*/
+.footer .contacts{
+	width:60%;
+	height:140px;
+	float:right;
+	margin-top:10px;
+	position:relative;
+}
+							/*div quay lại đầu trang*/
+.contacts .backtotop{
+	top:40px;
+	left:900px;
+	width:130px;
+	height:60px;
+	position:absolute;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+								/*tạo khung MENU*/
+.menu {
+	width: 100%;
+	height:50px;
+}
+.fontchu{
+	font-family:Arial, Helvetica, sans-serif;
+}
+								/*định dạng liên kết (link) hoặc liên kết đã thăm (visited)*/
+a.dngaz:link, a.dngaz:visited{
+	font-weight:bold;
+	color:black;
+	text-decoration:underline;
+}
+								/*định dạng liên kết khi trỏ chuột vào*/
+a.dngaz:hover{
+	color:#FF4242;
+	font-weight:bold;
+	font-size:larger;
+	text-decoration:underline;
+}
+a p.dngaz:hover{
+	color:#FFF;
+	font-weight:bold;
+	background:#000;
+}
+a p.buy:hover{
+	font-weight:bold;
+	font-size:larger;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+								/*khung chứa div thức ăn và div thông tin thức ăn hai bên: trái - phải*/
+.arrow_all{
+	width:500px;
+	height:400px;
+	position:relative;
+}
+				/*thông tin về thức ăn bên trái - phải*/
+.arrow_all .arrow_infor_left{
+	width:250px;
+	height:400px;
+	position:absolute;
+	top:0px;
+	left:230px;
+	z-index:1;
+}
+.arrow_all .arrow_infor_right{
+	width:200px;
+	height:400px;
+	position:absolute;
+	top:0px;
+	left:100px;
+	z-index:1;
+}
+				/*tạo khung chứa ảnh đồ ăn bên trái - phải*/
+.arrow_all .arrow_left{
+	width:500px;
+	height:400px;
+	-webkit-transition:margin-left 1s ;
+	position:absolute;
+	z-index:2;
+}		
+.arrow_all .arrow_right{
+	width:500px;
+	height:400px;
+	-webkit-transition:margin-left 1s ;
+	position:absolute;
+	z-index:2;
+}
+				/*cắt ảnh tạo thành góc nhọn bên trái - phải / transparent(trong suốt)- hiển thị cái bên dưới*/
+.arrow_all .triangle_left
+{
+  position:absolute;
+  top:0px;
+  left:0px;
+  height:0px;
+  width:0px;
+  border-right:100px solid transparent;
+  border-top:200px solid #FFF;
+  border-bottom:200px solid #FFF;
+  z-index:3;
+}
+.arrow_all .triangle_right
+{
+  position:absolute;
+  top:0px;
+  left:400px;
+  height:0px;
+  width:0px;
+  border-left:100px solid transparent;
+  border-top:200px solid #FFF;
+  border-bottom:200px solid #FFF;
+  z-index:3;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+					/*khung chứa div thức ăn và div thông tin thức ăn ở giữa*/
+.arrow_middle_all{
+	width:700px;
+	height:500px;
+	position:relative;
+}
+					/*thông tin về thức ăn ở giữa*/
+.arrow_middle_all .arrow_middle_infor{
+	width:700px;
+	height:500px;
+	position:absolute;
+	z-index:1;
+}
+					/*tạo khung ảnh ở giữa*/
+.arrow_middle_all .arrow_middle{
+	width:700px;
+	height:500px;
+	position:absolute;
+	z-index:2;
+	-webkit-transition:margin-top 1s ;
+}
+					/*cắt ảnh tạo thành góc nhọn bên trái - phải / transparent(trong suốt)- hiển thị cái bên dưới*/
+.arrow_middle .triangle_left{
+	position:absolute;
+	height:0px;
+	width:0px;
+	top:0px;
+	left:0px;
+	border-right:100px solid transparent;
+	border-top:250px solid #FFF;
+	border-bottom:250px solid #FFF;
+	z-index:3;
+}
+.arrow_middle .triangle_right{
+	position:absolute;
+	height:0px;
+	width:0px;
+	top:0px;
+	left:600px;
+	border-left:100px solid transparent;
+	border-top:250px solid #FFF;
+	border-bottom:250px solid #FFF;
+	z-index:3;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+			/*hình bên trái di chuyển qua trái khi đưa chuột vào*/
+.arrow_right:hover{
+	margin-left:300px;
+}
+			/*hình bên phải di chuyển qua phải khi đưa chuột vào*/
+.arrow_left:hover{
+	margin-left:-300px;
+}
+.arrow_middle:hover{
+	margin-top:170px;
+}

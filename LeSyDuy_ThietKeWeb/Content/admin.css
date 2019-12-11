@@ -1,0 +1,164 @@
+﻿@charset "utf-8";
+/* CSS Document */
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color:#FFF;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 
+	padding-right: 15px;
+	padding-left: 15px; 
+}
+a img { 
+	border: none;
+}
+
+a:link {
+	color:#414958;
+	text-decoration: underline; 
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { 
+	text-decoration: none;
+}
+
+/*----------------------------------------div chứa toàn bộ trang web-------------------------------------------------*/
+.container {
+	width: 100%;
+	background-color:#FFF;
+	margin: 0px auto;
+}
+
+/*----------------------------------------div trên đầu-------------------------------------------------*/
+.header {
+	background-color:#FFF;
+	width:100%;
+	height:100px;
+	float:left;
+}
+						/*phần div chứa ngày*/
+.header #date{
+	width:60%;
+	height:100px;
+	float:right;	
+}
+						/*div chứa ảnh gif logo*/
+.header .logo{
+	width:10%;
+	height:100px;
+	float:right;
+}
+
+/*----------------------------------------div ở giữa-------------------------------------------------*/
+
+
+
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; 
+}
+
+/*---------------------------------------div cuối trang---------------------------------------------------------*/
+.footer {
+	background-color:#F2F2F2;
+	height:150px;
+	width:100%;
+}
+.footer .logo{
+	width:35%;
+	height:150px;
+	float:left;
+	background:#454545;
+}
+							/*div chứa liên hệ*/
+.footer .contacts{
+	width:60%;
+	height:140px;
+	margin-top:10px;
+	position:relative;
+}
+							/*div quay lại đầu trang*/
+.contacts .backtotop{
+	top:40px;
+	left:900px;
+	width:130px;
+	height:60px;
+	position:absolute;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+								/*tạo khung MENU*/
+.fontchu{
+	font-family:Arial, Helvetica, sans-serif;
+}
+								/*định dạng liên kết (link) hoặc liên kết đã thăm (visited)*/
+a.dngaz:link, a.dngaz:visited{
+	font-weight:bold;
+	color:black;
+	text-decoration:underline;
+}
+								/*định dạng liên kết khi trỏ chuột vào*/
+a.dngaz:hover{
+	color:#FF4242;
+	font-weight:bold;
+	font-size:larger;
+	text-decoration:underline;
+}
+a p.dngaz:hover{
+	color:#FFF;
+	font-weight:bold;
+	background:#000;
+}
+a p.buy:hover{
+	font-weight:bold;
+	font-size:larger;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+				/*div chứa thông tin cá nhân, lich sử mua hàng*/
+.thongtincanhan{
+	width:40%;
+	height:280px;
+	margin:3% 30% 100px auto;
+}
+				/*div chứa avatar cá nhân*/
+.avatar{
+	width:10%;
+	height:150px;
+	margin:0% 45% 10px auto;
+}
+
+.container .menu{
+    background-color:aquamarine;
+    width:50%;
+    margin-left:5px;
+    border-width:10px;
+    height:100%;
+}
+

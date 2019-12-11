@@ -1,0 +1,87 @@
+﻿@model PagedList.IPagedList<Model.EF.NHANVIEN>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý nhân viên";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+
+@section header{
+    Danh sách nhân viên
+}
+
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Danh sách nhân viên
+            </div>
+
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                @using (Html.BeginForm("DSNV", "QLNV", FormMethod.Get))
+                {
+                    <div class="row form-group">
+                        <div class="col-lg-12">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="Nhập tìm kiếm (Họ tên nhân viên/ Mã nhân viên/ Vị trí)" value="@ViewBag.SearchNV" name="searchNV" />
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                                <a class="btn btn-primary" href="/them-moi-nhan-vien">Thêm mới</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Mã NV</th>
+                                <th>Họ tên nhân viên</th>
+                                <th>Vị trí</th>
+                                <th>Ngày vào làm</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.MaNV">
+                                    <td align="center">@item.MaNV</td>
+                                    <td>@item.HoTenNV</td>
+                                    <td>@item.ViTri</td>
+                                    <td>@item.NgayVaoLam</td>
+                                    <td>@item.GioiTinh</td>
+                                    <td>@item.NgaySinh</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.DienThoaiNV</td>
+                                    <td align="center">
+                                        <a href="/chinh-sua-nhan-vien?id=@item.MaNV" style="color:lightskyblue">Sửa</a>
+                                        |
+                                        @Ajax.ActionLink("Xoá", "Delete", new { @id = item.MaNV }, new AjaxOptions
+                                                       {
+                                                           Confirm = "Bạn có chắc chắn muốn xóa?",
+                                                           OnComplete = "$('#row_" + @item.MaNV + "').remove()",
+                                                           HttpMethod = "Delete"
+                                                       })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @Html.PagedListPager(Model, page => Url.Action("DSNV", new { page, @searchNV = @ViewBag.SearchNV }))
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    </div>
+</div>

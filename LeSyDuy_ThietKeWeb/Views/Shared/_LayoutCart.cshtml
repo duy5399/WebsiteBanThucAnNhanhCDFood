@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - CD Food</title>
+
+    <script src="@Url.Content("~/Scripts/time.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/switch_Img.js")" type="text/javascript"></script>
+
+    <link href="@Url.Content("~/Content/header_footer.css")" rel="stylesheet" type="text/css" />
+</head>
+<body onload="display_date(); switch_img();">
+    <div>
+        <!-- begin .container-->
+        <!-------------------------------------------------LOGO và NGÀY--------------------------------------------------------->
+        <!--begin .header-->
+        <div class="header">
+            <div id="date" align="right"></div>			<!--Ngày, Đồng hồ góc trên bên phải - id ="date" để bên time.js getElementById("date")-->
+            <div class="logo"><img src="@Url.Content("~/Images/logo/hotdog.gif")" alt="food_logo_gif" width="100%" height="100px" /></div>
+            <a href="trangchu.html" name="backtotop"><img src="@Url.Content("~/Images/logo/logo.jpg")" alt="ChiDuyFood" name="Food_logo" width="30%" height="100px" id="Insert_logo" style="background-color: #8090AB; display:block;" /></a>
+        </div>
+        <br />
+        <br />
+        <!--end .header-->
+        <hr color="#FF9900" />		<!-- dòng kẻ ngang -->
+        <hr color="#FF9900" />		<!-- dòng kẻ ngang -->
+        <hr color="#FF9900" />		<!-- dòng kẻ ngang -->
+        <!--tạo bảng MENU-->
+        <table align="center" border="0" class="fontchu">
+            <tr align="center">
+                <td width="200"><a href="/trang-chu" class="dngaz"><b>TRANG CHỦ</b></a></td>
+                <td width="10"><b>|</b></td>
+                <td width="200"><a href="/thuc-don" class="dngaz"><b>THỰC ĐƠN</b></a></td>
+                <td width="10"><b>|</b></td>
+                <td width="200"><a href="/dang-nhap" class="dngaz"><b>TÀI KHOẢN</b></a></td>
+                <td width="10"><b>|</b></td>
+                <td width="200"><a href="#lienhe" class="dngaz"><b>LIÊN HỆ</b></a></td>
+            </tr>
+        </table>
+        <hr color="#FF9900" />    <!-- dòng kẻ ngang -->
+        <!----------------------------------------------------------------------------------------------------------------------------->
+
+        @RenderBody()
+
+        <!----------------------------------------------------------LIÊN HỆ-------------------------------------------------------------->
+        <!--begin .footer-->
+        <div class="footer">
+            <div class="logo"><a name="lienhe"></a></div>
+            <div class="contacts">
+                <table width="600" border="0">
+                    <tr align="center">
+                        <td></td>
+                        <td>
+                            <a href="/gioi-thieu" class="fontchu"><font size="+2" color="#000000">Giới thiệu</font></a>
+                        </td>
+                        <td>
+                            <p>|</p>
+                        </td>
+                        <td>
+                            <a href="#" class="fontchu"><font size="+2" color="#000000">Tin Tức</font></a>
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td>
+                            <img src="@Url.Content("~/Images/icon/mail.png")" alt="mail_img" height="25px" width="25px" />
+                        </td>
+                        <td>
+                            <a href="mailto:duy5399@gmail.com" class="fontchu"><font color="#A80000">duy5399@gmail.com</font></a>
+                        </td>
+                        <td>
+                            <p>_</p>
+                        </td>
+                        <td>
+                            <a href="mailto:phuongchiokita@gmail.com" class="fontchu"><font color="#A80000">phuongchiokita@gmail.com</font></a>
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td>
+                            <img src="@Url.Content("~/Images/icon/phone.png")" alt="phone_img" height="22px" width="22px" />
+                        </td>
+                        <td>
+                            <a href="tel:0338486121" class="fontchu"><font color="#A80000">033-8486121</font></a>
+                        </td>
+                        <td>
+                            <p>_</p>
+                        </td>
+                        <td>
+                            <a href="tel:0343007508" class="fontchu"><font color="#A80000">034-3007508</font></a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="backtotop">
+                    <img src="@Url.Content("~/Images/icon/fb.png")" alt="facebook_img" width="60px" height="60px" usemap="#facebook_map" />
+                    <map name="facebook_map">
+                        <area shape="rect" coords="0,0,60,60" alt="facebook" href="https://www.facebook.com/vy.phuong.750331" />
+                    </map>
+                    <img src="@Url.Content("~/Images/icon/backtotop.png")" alt="backtotop_img" width="60px" height="60px" usemap="#backtotop_map" />
+                    <map name="backtotop_map">
+                        <area shape="rect" coords="0,0,60,60" alt="BackToTop" href="#backtotop" />
+                    </map>
+                </div>
+            </div>
+        </div>
+        <!--end .footer-->
+    </div>
+     
+</body>
+</html>

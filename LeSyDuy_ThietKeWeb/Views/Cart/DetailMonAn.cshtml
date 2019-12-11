@@ -1,0 +1,91 @@
+﻿@model Model.EF.MONAN
+@{
+    ViewBag.Title = "Chi tiết món ăn";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+    var related = (List<Model.EF.MONAN>)ViewBag.RelatedMonAn;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/order2.css" rel="stylesheet" />
+<style>
+    .content_detail {
+        margin: 2% 15% 2% 5%;
+    }
+</style>
+
+    <div class="content_detail">
+        <!-- Page Content -->
+        <div class="page-link"><p><a href="/thuc-don">Thực đơn</a> > @Model.MaCD > @Model.TenMonAn</p></div>
+        <br />
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-fluid" src="@Model.HinhMinhHoa" alt="@Model.TenMonAn" width=72% height=42% />
+            </div>
+
+            <div class="col-md-4">
+                <!-- Portfolio Item Heading -->
+                <h1 class="my-4" style="color:orangered">
+                    @Model.TenMonAn
+                </h1>
+                <h3 class="my-3"><u>Mô tả</u></h3>
+                <p>@Model.MoTa</p>
+                <h3 class="my-3">
+                    <br />
+                </h3>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees">@(Model.DonGia.HasValue ? Model.DonGia.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/them-gio-hang?maMonAn=@Model.MaMonAn&soluong=1">Thêm vào giỏ</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <br />
+                <div class="btn-secondary">
+                    <a href="/danh-gia/@Model.TenMonAn/@Model.MaMonAn" style="color:red"><h3>Xem đánh giá</h3></a>
+                </div>
+                <div class="btn-secondary">
+                    <a href="/form-danh-gia/@Model.TenMonAn/@Model.MaMonAn" style="color:red"><h3>Đánh giá</h3></a>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+        <br />
+    </div>
+    <div class="content_all">
+        <hr width="30%" color="red" align="left" />
+        <div class="content_all">
+            <div class="content_bottom">
+                <div class="heading_left">
+                    <h2>|   Món ăn cùng chủ đề</h2>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="section group">
+                @foreach (var item in related)
+                {
+                    var url = "/chi-tiet/" + item.MaCD + "/" + item.TenMonAn + "/" + item.MaMonAn;
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="@url"><img src="@item.HinhMinhHoa" alt="@item.TenMonAn" height="260px" /></a>
+                        <h2>@item.TenMonAn</h2>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees">@(item.DonGia.HasValue ? item.DonGia.Value.ToString("N0") + " VNĐ" : "Liên hệ")</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <h4><a href="/them-gio-hang?maMonAn=@item.MaMonAn&soluong=1">Thêm vào giỏ</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+@{ Html.RenderAction("CartAlert", "Cart");}

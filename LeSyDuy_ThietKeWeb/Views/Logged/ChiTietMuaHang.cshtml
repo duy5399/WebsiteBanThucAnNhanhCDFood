@@ -1,0 +1,59 @@
+﻿@model List<Model.ViewModel.CTDonHangViewModel>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+
+@section header{
+    Chi tiết đơn hàng
+}
+<style>
+    .mg-left{
+        margin-left:20px;
+    }
+</style>
+
+<div class="row">
+
+    <div class="col-lg-11">
+
+        <div class="panel panel-default">
+
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <td align="center"><b>Tên món ăn</b></td>
+                                <td align="center"><b>Hình minh họa</b></td>
+                                <td align="center"><b>Đơn giá</b></td>
+                                <td align="center"><b>Số lượng</b></td>
+                                <td align="center"><b>Thành tiền</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td align="center">@item.TenMonAn</td>
+                                    <td align="center"><img src="@item.HinhMinhHoa" width="100px" height="60px"/></td>
+                                    <td align="center">@item.DonGia.GetValueOrDefault(0).ToString("N0") VNĐ</td>
+                                    <td align="center">@item.SoLuong</td>
+                                    <td align="center">@item.Thanhtien.GetValueOrDefault(0).ToString("N0") VNĐ</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    </div>
+</div>
+<div>
+    @{ var session = (LeSyDuy_ThietKeWeb.Common.UserLogin)Session[LeSyDuy_ThietKeWeb.Common.CommonConstants.SESSION];}
+    <a href="/lich-su-mua-hang/@session.MaKH" class="mg-left">Back to List</a>
+</div>
